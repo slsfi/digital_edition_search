@@ -1,0 +1,4 @@
+data/
+.env
+.vscode/
+logstash/pipeline/logstash.conf

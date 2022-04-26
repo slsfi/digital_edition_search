@@ -1,5 +1,6 @@
 # General setup
-- Mount the project files (e.g. XML) on the machine runnig the ELK-stack (this repo).
+- Mount the project files (e.g. https://github.com/slsfi/topelius-files) on the machine runnig the ELK-stack (this repo).
+  - This can be done locally or over a network share
 - Mount the project files in the docker-compose.yml for the logstash part of the configuration.
 ```
   logstash:

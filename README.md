@@ -13,5 +13,6 @@
 
 ## Troubleshooting
 
-Sometimes the the logstash process needs to be restarted to fully understand and process new configuration files. 
+- Sometimes the the logstash process needs to be restarted to fully understand and process new configuration files. 
 This could probably be fixed by running the project without Docker?
+- Files must be encoded as UTF-8 (not e.g. UTF-8 BOM)

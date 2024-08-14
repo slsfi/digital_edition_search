@@ -1,10 +1,10 @@
-This file holds the dynamic field mapping templates for the "granqvist" ElasticSearch index. The mappings are compatible with the fields in the logstash pipeline for "granqvist", logstash/pipeline_examples/logstash_ordsprak.conf, as well as the digital edition frontend (https://github.com/slsfi/digital-edition-frontend-ng).
+This file holds the dynamic field mapping templates for the "ordsprak" ElasticSearch index. The mappings are compatible with the fields in the logstash pipeline for "ordsprak", logstash/pipeline_examples/logstash_ordsprak.conf, as well as the digital edition frontend (https://github.com/slsfi/digital-edition-frontend-ng).
 
 Docs on ElasticSearch dynamic mapping: https://www.elastic.co/guide/en/elasticsearch/reference/7.17/dynamic-mapping.html
 
-Run the following in Kibana's console to create a new index with the name "granqvist". You must delete any existing index with the name "granqvist" prior to this.
+Run the following in Kibana's console to create a new index with the name "ordsprak". You must delete any existing index with the name "ordsprak" prior to this.
 
-PUT granqvist
+PUT ordsprak
 {
 	"mappings": {
 		"dynamic_templates": [

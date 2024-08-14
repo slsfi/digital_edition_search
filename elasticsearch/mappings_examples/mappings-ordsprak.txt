@@ -1,0 +1,117 @@
+This file holds the dynamic field mapping templates for the "granqvist" ElasticSearch index. The mappings are compatible with the fields in the logstash pipeline for "granqvist", logstash/pipeline_examples/logstash_ordsprak.conf, as well as the digital edition frontend (https://github.com/slsfi/digital-edition-frontend-ng).
+
+Docs on ElasticSearch dynamic mapping: https://www.elastic.co/guide/en/elasticsearch/reference/7.17/dynamic-mapping.html
+
+Run the following in Kibana's console to create a new index with the name "granqvist". You must delete any existing index with the name "granqvist" prior to this.
+
+PUT granqvist
+{
+	"mappings": {
+		"dynamic_templates": [
+			{
+				"tie_breaker_id_mapping": {
+					"match_mapping_type": "string",
+					"match": "tie_breaker_id",
+					"mapping": {
+						"type": "keyword"
+					}
+				}
+			},
+			{
+				"published_mapping": {
+					"match": "published",
+					"mapping": {
+						"type": "keyword"
+					}
+				}
+			},
+			{
+				"deleted_mapping": {
+					"match": "deleted",
+					"mapping": {
+						"type": "keyword"
+					}
+				}
+			},
+			{
+				"text_type_mapping": {
+					"match_mapping_type": "string",
+					"match": "text_type",
+					"mapping": {
+						"type": "keyword"
+					}
+				}
+			},
+			{
+				"collection_id_mapping": {
+					"match": "collection_id",
+					"mapping": {
+						"type": "keyword"
+					}
+				}
+			},
+			{
+				"publication_id_mapping": {
+					"match": "publication_id",
+					"mapping": {
+						"type": "keyword"
+					}
+				}
+			},
+			{
+				"project_xml_path_mapping": {
+					"match_mapping_type": "string",
+					"match": "project_xml_path",
+					"mapping": {
+						"type": "keyword"
+					}
+				}
+			},
+			{
+				"doc_title_mapping": {
+					"match_mapping_type": "string",
+					"match": "doc_title",
+					"mapping": {
+						"type": "text"
+					}
+				}
+			},
+			{
+				"text_title_mapping": {
+					"match_mapping_type": "string",
+					"match": "text_title",
+					"mapping": {
+						"type": "text",
+						"term_vector": "with_positions_offsets"
+					}
+				}
+			},
+			{
+				"text_data_mapping": {
+					"match_mapping_type": "string",
+					"match": "text_data",
+					"mapping": {
+						"type": "text",
+						"term_vector": "with_positions_offsets"
+					}
+				}
+			},
+      {
+				"region_mapping": {
+					"match": "region",
+					"mapping": {
+						"type": "keyword"
+					}
+				}
+			},
+      {
+				"signum_mapping": {
+					"match": "signum",
+					"mapping": {
+						"type": "keyword"
+					}
+				}
+			}
+		]
+	}
+}

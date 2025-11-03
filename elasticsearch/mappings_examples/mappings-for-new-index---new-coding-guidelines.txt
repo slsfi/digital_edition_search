@@ -38,6 +38,15 @@ PUT index_name
 					}
 				}
 			},
+      {
+				"text_language_mapping": {
+					"match_mapping_type": "string",
+					"match": "text_language",
+					"mapping": {
+						"type": "keyword"
+					}
+				}
+			},
 			{
 				"collection_id_mapping": {
 					"match": "collection_id",

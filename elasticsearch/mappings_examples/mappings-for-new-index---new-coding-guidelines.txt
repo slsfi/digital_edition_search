@@ -2,146 +2,153 @@ Run the following in Kibana's console to create a new index with the name "index
 
 PUT index_name
 {
-	"mappings": {
-		"dynamic_templates": [
-			{
-				"tie_breaker_id_mapping": {
-					"match_mapping_type": "string",
-					"match": "tie_breaker_id",
-					"mapping": {
-						"type": "keyword"
-					}
-				}
-			},
-			{
-				"published_mapping": {
-					"match": "published",
-					"mapping": {
-						"type": "keyword"
-					}
-				}
-			},
-			{
-				"deleted_mapping": {
-					"match": "deleted",
-					"mapping": {
-						"type": "keyword"
-					}
-				}
-			},
-			{
-				"text_type_mapping": {
-					"match_mapping_type": "string",
-					"match": "text_type",
-					"mapping": {
-						"type": "keyword"
-					}
-				}
-			},
+  "mappings": {
+    "dynamic_templates": [
       {
-				"text_language_mapping": {
-					"match_mapping_type": "string",
-					"match": "text_language",
-					"mapping": {
-						"type": "keyword"
-					}
-				}
-			},
-			{
-				"collection_id_mapping": {
-					"match": "collection_id",
-					"mapping": {
-						"type": "keyword"
-					}
-				}
-			},
-			{
-				"publication_id_mapping": {
-					"match": "publication_id",
-					"mapping": {
-						"type": "keyword"
-					}
-				}
-			},
-			{
-				"type_id_mapping": {
-					"match": "type_id",
-					"mapping": {
-						"type": "keyword"
-					}
-				}
-			},
+        "tie_breaker_id_mapping": {
+          "match_mapping_type": "string",
+          "match": "tie_breaker_id",
+          "mapping": {
+            "type": "keyword"
+          }
+        }
+      },
       {
-				"orig_date_sort_mapping": {
-					"match": "orig_date_sort",
-					"mapping": {
-						"type": "date",
+        "published_mapping": {
+          "match": "published",
+          "mapping": {
+            "type": "keyword"
+          }
+        }
+      },
+      {
+        "deleted_mapping": {
+          "match": "deleted",
+          "mapping": {
+            "type": "keyword"
+          }
+        }
+      },
+      {
+        "text_type_mapping": {
+          "match_mapping_type": "string",
+          "match": "text_type",
+          "mapping": {
+            "type": "keyword"
+          }
+        }
+      },
+      {
+        "text_language_mapping": {
+          "match_mapping_type": "string",
+          "match": "text_language",
+          "mapping": {
+            "type": "keyword"
+          }
+        }
+      },
+      {
+        "collection_id_mapping": {
+          "match": "collection_id",
+          "mapping": {
+            "type": "keyword"
+          }
+        }
+      },
+      {
+        "publication_id_mapping": {
+          "match": "publication_id",
+          "mapping": {
+            "type": "keyword"
+          }
+        }
+      },
+      {
+        "type_id_mapping": {
+          "match": "type_id",
+          "mapping": {
+            "type": "keyword"
+          }
+        }
+      },
+      {
+        "orig_date_mapping": {
+          "match": "orig_date",
+          "mapping": {
+            "type": "text",
+            "fields": {
+              "keyword": { "type": "keyword", "ignore_above": 256 }
+            }
+          }
+        }
+      },
+      {
+        "orig_date_certain_mapping": {
+          "match": "orig_date_certain",
+          "mapping": {
+            "type": "date",
             "format": "yyyy-MM-dd"
-					}
-				}
-			},
+          }
+        }
+      },
       {
-				"orig_date_certain_mapping": {
-					"match": "orig_date_certain",
-					"mapping": {
-						"type": "keyword"
-					}
-				}
-			},
+        "orig_date_sort_mapping": {
+          "match": "orig_date_sort",
+          "mapping": {
+            "type": "date",
+            "format": "yyyy-MM-dd"
+          }
+        }
+      },
       {
-				"orig_date_mapping": {
-					"match": "orig_date",
-					"mapping": {
-						"type": "keyword"
-					}
-				}
-			},
+        "orig_date_year_mapping": {
+          "match": "orig_date_year",
+          "mapping": {
+            "type": "text",
+            "fields": {
+              "keyword": { "type": "keyword", "ignore_above": 256 }
+            }
+          }
+        }
+      },
       {
-				"orig_date_year_mapping": {
-					"match": "orig_date_year",
-					"mapping": {
-						"type": "keyword"
-					}
-				}
-			},
-			{
-				"project_xml_path_mapping": {
-					"match_mapping_type": "string",
-					"match": "project_xml_path",
-					"mapping": {
-						"type": "keyword"
-					}
-				}
-			},
-			{
-				"doc_title_mapping": {
-					"match_mapping_type": "string",
-					"match": "doc_title",
-					"mapping": {
-						"type": "text"
-					}
-				}
-			},
-			{
-				"text_title_mapping": {
-					"match_mapping_type": "string",
-					"match": "text_title",
-					"mapping": {
-						"type": "text",
-						"term_vector": "with_positions_offsets"
-					}
-				}
-			},
-			{
-				"text_data_mapping": {
-					"match_mapping_type": "string",
-					"match": "text_data",
-					"mapping": {
-						"type": "text",
-						"term_vector": "with_positions_offsets"
-					}
-				}
-			}
-		]
-	}
+        "project_xml_path_mapping": {
+          "match_mapping_type": "string",
+          "match": "project_xml_path",
+          "mapping": {
+            "type": "keyword"
+          }
+        }
+      },
+      {
+        "doc_title_mapping": {
+          "match_mapping_type": "string",
+          "match": "doc_title",
+          "mapping": {
+            "type": "text"
+          }
+        }
+      },
+      {
+        "text_title_mapping": {
+          "match_mapping_type": "string",
+          "match": "text_title",
+          "mapping": {
+            "type": "text",
+            "term_vector": "with_positions_offsets"
+          }
+        }
+      },
+      {
+        "text_data_mapping": {
+          "match_mapping_type": "string",
+          "match": "text_data",
+          "mapping": {
+            "type": "text",
+            "term_vector": "with_positions_offsets"
+          }
+        }
+      }
+    ]
+  }
 }

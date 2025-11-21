@@ -86,8 +86,7 @@ PUT index_name
         "orig_date_certain_mapping": {
           "match": "orig_date_certain",
           "mapping": {
-            "type": "date",
-            "format": "yyyy-MM-dd"
+            "type": "date"
           }
         }
       },
@@ -95,8 +94,7 @@ PUT index_name
         "orig_date_sort_mapping": {
           "match": "orig_date_sort",
           "mapping": {
-            "type": "date",
-            "format": "yyyy-MM-dd"
+            "type": "date"
           }
         }
       },

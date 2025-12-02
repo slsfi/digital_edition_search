@@ -1,5 +1,7 @@
 Run the following in Kibana's console to create a new index with the name "index_name". This way, the index is created with the correct mappings for the logstash pipelines and the digital edition frontend.
 
+Indices that use this mapping: historiskarecept, soderholm, topelius, vonwright
+
 PUT index_name
 {
 	"mappings": {
@@ -63,22 +65,6 @@ PUT index_name
 				}
 			},
 			{
-				"cat_ref_mapping": {
-					"match": "cat_ref",
-					"mapping": {
-						"type": "keyword"
-					}
-				}
-			},
-			{
-				"publisher_mapping": {
-					"match": "publisher",
-					"mapping": {
-						"type": "keyword"
-					}
-				}
-			},
-			{
 				"project_xml_path_mapping": {
 					"match_mapping_type": "string",
 					"match": "project_xml_path",
@@ -113,6 +99,22 @@ PUT index_name
 					"mapping": {
 						"type": "text",
 						"term_vector": "with_positions_offsets"
+					}
+				}
+			},
+			{
+				"db_conn_success_mapping": {
+					"match": "db_conn_success",
+					"mapping": {
+						"type": "boolean"
+					}
+				}
+			},
+			{
+				"db_defaultsused_mapping": {
+					"match": "db_defaultsused",
+					"mapping": {
+						"type": "boolean"
 					}
 				}
 			}

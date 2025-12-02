@@ -1,0 +1,32 @@
+This file holds the dynamic field mapping templates for the "fsfd" ElasticSearch index. The mappings are compatible with the fields in the logstash pipeline for "fsfd", logstash/pipeline_examples/logstash_fsfd.conf.
+
+Docs on ElasticSearch dynamic mapping: https://www.elastic.co/guide/en/elasticsearch/reference/7.17/dynamic-mapping.html
+
+Run the following in Kibana's console to create a new index with the name "fsfd". You must delete any existing index with the name "fsfd" prior to this.
+
+PUT fsfd
+{
+	"mappings": {
+		"dynamic_templates": [
+			{
+				"tie_breaker_id_mapping": {
+					"match_mapping_type": "string",
+					"match": "tie_breaker_id",
+					"mapping": {
+						"type": "keyword"
+					}
+				}
+			},
+			{
+				"message_mapping": {
+					"match_mapping_type": "string",
+					"match": "message",
+					"mapping": {
+						"type": "text",
+						"term_vector": "with_positions_offsets"
+					}
+				}
+			}
+		]
+	}
+}

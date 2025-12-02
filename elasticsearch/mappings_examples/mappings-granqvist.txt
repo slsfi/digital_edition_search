@@ -69,6 +69,22 @@ PUT granqvist
 						"term_vector": "with_positions_offsets"
 					}
 				}
+			},
+			{
+				"db_conn_success_mapping": {
+					"match": "db_conn_success",
+					"mapping": {
+						"type": "boolean"
+					}
+				}
+			},
+			{
+				"db_defaultsused_mapping": {
+					"match": "db_defaultsused",
+					"mapping": {
+						"type": "boolean"
+					}
+				}
 			}
 		]
 	}

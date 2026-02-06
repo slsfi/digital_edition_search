@@ -1,6 +1,6 @@
 Run the following in Kibana's console to create a new index with the name "index_name". This way, the index is created with the correct mappings for the logstash pipelines and the digital edition frontend.
 
-Indices that use this mapping: historiskarecept, soderholm, topelius, vonwright
+Indices that use this mapping: historiskarecept, parland, soderholm, topelius, vonwright
 
 PUT index_name
 {

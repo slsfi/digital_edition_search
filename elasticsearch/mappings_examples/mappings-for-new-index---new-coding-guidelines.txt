@@ -1,6 +1,6 @@
 Run the following in Kibana's console to create a new index with the name "index_name". This way, the index is created with the correct mappings for the logstash pipelines and the digital edition frontend.
 
-Indices that use this mapping: westermarck
+Indices that use this mapping: westermarck, jansson
 
 PUT index_name
 {
